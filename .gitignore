@@ -1,0 +1,10 @@
+# IntelliJ project files
+.idea
+*.iml
+*.ipr
+*.iws
+gradlew
+eclipse
+build
+.gradle
+gradle
