@@ -16,7 +16,7 @@ import org.cappmc.SNIPER722.capplogin.utiltity.localInfoUtiltis;
 
 import java.io.IOException;
 
-@Mod(modid = Reference.MOD_ID ,name=Reference.MOD_NAME ,version=Reference.VERSION)
+@Mod(modid = Reference.MOD_ID ,name=Reference.MOD_NAME ,version=Reference.VERSION,acceptableRemoteVersions="*")
 public class CappLogin {
 
     @Mod.Instance(Reference.MOD_ID)
