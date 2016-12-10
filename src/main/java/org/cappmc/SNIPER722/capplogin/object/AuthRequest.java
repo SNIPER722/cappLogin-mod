@@ -6,7 +6,7 @@ import java.util.UUID;
  * Created by SNIPER722 on 8/10/2015.
  */
 public class AuthRequest {
-    private final String action = "Server_OnlineCheck";
+    private final String Action = "Server_OnlineCheck";
     private String Target = "";
     private UUID UUID = null;
     private String IP = "";
@@ -40,7 +40,7 @@ public class AuthRequest {
     // for GSON toJson
     @Override
     public String toString(){
-        return "AuthRequest [Action="+action+",Target="+Target+",UUID="+UUID.toString()+", IP="+IP+"]";
+        return "AuthRequest [Action="+Action+",Target="+Target+",UUID="+UUID.toString()+", IP="+IP+"]";
     }
 
 }

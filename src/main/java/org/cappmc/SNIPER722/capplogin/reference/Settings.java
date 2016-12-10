@@ -10,5 +10,5 @@ public class Settings {
     public static String url = null;
     public static int port = 8080;
     public static String[] checkedDims = null;
-    public static boolean debug = false;
+    public static boolean debug = true;
 }

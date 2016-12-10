@@ -45,20 +45,28 @@ public class AuthHelper {
                 result.setReason("null");
             }else{
                 result.setResult(false);
-                result.setReason("Auth Falied");
+                result.setReason("§cYou are not use the launcher we provided!");
             }
             /***********************[Temp]*****************************/
             //result = new Gson().fromJson(tempResult, AuthResult.class);
         }catch(IOException e){
             result.setResult(false);
-            result.setReason("§c登陆系统出现读取故障,请联系管理员解决");
+            result.setReason("§cServer throws an IOException, Contact admin!");
+            if(Settings.debug) {
+                e.printStackTrace();
+            }
         }catch(NoSuchElementException e){
             result.setResult(false);
-            result.setReason("§e登陆服务器没有响应,请联系管理员解决");
+            result.setReason("§eServer throws an NoSuchElementException, Contact admin!");
+            if(Settings.debug) {
+                e.printStackTrace();
+            }
         }catch(Exception e){
             result.setResult(false);
-            result.setReason("§c登陆系统出现未知故障,请联系管理员解决");
-            e.printStackTrace();
+            result.setReason("§cServer throws an generalException, Contact admin!");
+            if(Settings.debug) {
+                e.printStackTrace();
+            }
         }finally {
             // closure
             if(inFromServer != null) {
