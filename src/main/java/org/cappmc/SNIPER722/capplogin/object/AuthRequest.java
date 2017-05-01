@@ -1,46 +1,43 @@
 package org.cappmc.SNIPER722.capplogin.object;
 
-import java.util.UUID;
+
+import io.grpc.ManagedChannel;
+import io.grpc.StatusRuntimeException;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by SNIPER722 on 8/10/2015.
  */
 public class AuthRequest {
-    private final String Action = "Server_OnlineCheck";
-    private String Target = "";
-    private UUID UUID = null;
-    private String IP = "";
 
-    public AuthRequest(){
+    private final ManagedChannel channel;
+    private final CappcraftGrpc.CappcraftBlockingStub stub;
 
-    }
-    public AuthRequest(String name,UUID uid){
-        Target = name;
-        UUID = uid;
+    public AuthRequest(ManagedChannel channel){
+        this.channel = channel;
+        stub = CappcraftGrpc.newBlockingStub(channel);
     }
 
-    public AuthRequest(String name,UUID uid,String address){
-        Target = name;
-        UUID = uid;
-        IP = address;
+    public void shutdown() throws InterruptedException {
+        channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    public String getName(){
-        return Target;
-    }
+    public AuthResult validate(String player,String UUID)throws IOException {
+        AuthResult result = new AuthResult();
+        ValidateUserRequest request = ValidateUserRequest.newBuilder().setUsername(player).setUUID(UUID).build();
+        ValidateUserResponse response;
+        try{
+            response = stub.validateUser(request);
+            result.setResult(response.getCode()==1);
+            result.setReason("§c"+response.getMessage());
+        }catch (StatusRuntimeException e) {
+            result.setResult(false);
+            result.setReason("§eServer throws a StatusRuntimeException, Contact admin!");
+        }
 
-    public String getUUID(){
-        return UUID.toString();
-    }
-
-    public String getIP(){
-        return IP;
-    }
-
-    // for GSON toJson
-    @Override
-    public String toString(){
-        return "AuthRequest [Action="+Action+",Target="+Target+",UUID="+UUID.toString()+", IP="+IP+"]";
+        return result;
     }
 
 }

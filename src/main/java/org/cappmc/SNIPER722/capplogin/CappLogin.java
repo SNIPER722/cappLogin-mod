@@ -11,10 +11,6 @@ import org.cappmc.SNIPER722.capplogin.handler.ConfigurationHandler;
 import org.cappmc.SNIPER722.capplogin.handler.PlayerEventHandler;
 import org.cappmc.SNIPER722.capplogin.proxy.IProxy;
 import org.cappmc.SNIPER722.capplogin.reference.Reference;
-import org.cappmc.SNIPER722.capplogin.utiltity.logHelper;
-import org.cappmc.SNIPER722.capplogin.utiltity.localInfoUtiltis;
-
-import java.io.IOException;
 
 @Mod(modid = Reference.MOD_ID ,name=Reference.MOD_NAME ,version=Reference.VERSION,acceptableRemoteVersions="*")
 public class CappLogin {
