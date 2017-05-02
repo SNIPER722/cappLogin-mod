@@ -50,18 +50,6 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-    //compile 'io.grpc:grpc-netty:1.2.0'
-    //compile 'io.grpc:grpc-protobuf:1.2.0'
-    //compile 'io.grpc:grpc-stub:1.2.0'
-    //compile 'io.grpc:grpc-netty:1.3.0'
-    compile 'io.grpc:grpc-protobuf:1.3.0'
-    compile 'io.grpc:grpc-stub:1.3.0'
-
-    //compile 'io.netty:netty-tcnative-boringssl-static:2.0.1.Final'
-    compile 'io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26'
-    compile 'org.jctools:jctools-core:1.2.1'
-    compile files('lib/grpc-netty-1.3.0-Bundle.jar')
-    //compile 'io.netty:netty-buffer:4.1.7.Final'
 
 }
 
